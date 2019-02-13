@@ -47,8 +47,8 @@ class Motor extends vehicle{
 	sentence2(){
 		return `<br><div class="motor">${super.sentence()}</div>`
 	}
-	sentence2X(){
-		return `${this.weight}<br>${this.seatHeight}!`
+	sentenceX(){
+		return `${super.sentenceX()}${this.weight}<br>${this.seatHeight}!`
 	}
 }
 
@@ -68,8 +68,8 @@ class Truck extends vehicle{
 	sentence3(){
 		return `<br><div class="truck">${super.sentence()}</div>`
 	}
-	sentence3X(){
-		return `${this.wheels}<br>${this.trailers}`
+	sentenceX(){
+		return `${super.sentenceX()} ${this.wheels}<br>${this.trailers}`
 	}
 }
 
@@ -81,9 +81,7 @@ var arr = [car,motor,truck];
 for(let i in arr){
 	document.getElementsByClassName("btn")[i].addEventListener("click",function(){
 		//alert(arr[i].sentenceX());
-		document.getElementsByClassName("result")[i].innerHTML=arr[i].sentenceX();
-		document.getElementsByClassName("result")[i].innerHTML+=arr[i].sentence2X();
-		document.getElementsByClassName("result")[i].innerHTML+=arr[i].sentence3X();
-	})
+		document.getElementsByClassName("result")[i].innerHTML+=arr[i].sentenceX();
+		
 }
 

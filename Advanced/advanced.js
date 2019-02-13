@@ -49,8 +49,8 @@ var Motor = /** @class */ (function (_super) {
     Motor.prototype.sentence2 = function () {
         return "<br><div class=\"motor\">" + _super.prototype.sentence.call(this) + "</div>";
     };
-    Motor.prototype.sentence2X = function () {
-        return this.weight + "<br>" + this.seatHeight + "!";
+    Motor.prototype.sentenceX = function () {
+        return "" + _super.prototype.sentenceX.call(this) + this.weight + "<br>" + this.seatHeight + "!";
     };
     return Motor;
 }(vehicle));
@@ -69,8 +69,8 @@ var Truck = /** @class */ (function (_super) {
     Truck.prototype.sentence3 = function () {
         return "<br><div class=\"truck\">" + _super.prototype.sentence.call(this) + "</div>";
     };
-    Truck.prototype.sentence3X = function () {
-        return this.wheels + "<br>" + this.trailers;
+    Truck.prototype.sentenceX = function () {
+        return _super.prototype.sentenceX.call(this) + " " + this.wheels + "<br>" + this.trailers;
     };
     return Truck;
 }(vehicle));
@@ -80,9 +80,7 @@ var arr = [car, motor, truck];
 var _loop_1 = function (i) {
     document.getElementsByClassName("btn")[i].addEventListener("click", function () {
         //alert(arr[i].sentenceX());
-        document.getElementsByClassName("result")[i].innerHTML = arr[i].sentenceX();
-        document.getElementsByClassName("result")[i].innerHTML += arr[i].sentence2X();
-        document.getElementsByClassName("result")[i].innerHTML += arr[i].sentence3X();
+        document.getElementsByClassName("result")[i].innerHTML += arr[i].sentenceX();
     });
 };
 for (var i in arr) {
