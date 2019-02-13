@@ -1,0 +1,1 @@
+import { Person , test2} from "./myscript" // use import to take the classes,variables etc.. from the previous ts file(basic 3)
